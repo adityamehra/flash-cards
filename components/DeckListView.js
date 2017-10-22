@@ -37,7 +37,7 @@ class DeckListView extends React.Component {
               return (
                 <View style={styles.center}>
                   <TouchableOpacity style={styles.eachDeckRow} onPress={() => this.onPress(item)}>
-                    <Text style={styles.deckNameText}>{item.title}</Text>
+                    <Text style={styles.deckTitleText}>{item.title}</Text>
                     <Text style={styles.deckCardText}>{`${item.cards} cards`}</Text>
                   </TouchableOpacity>
                 </View>
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 7,
     height: 45,
-    marginLeft: 40,
-    marginRight: 40,
+    marginLeft: 10,
+    marginRight: 10,
   },
   submitBtnText: {
     color: 'white',
@@ -71,29 +71,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     height: 80,
-    backgroundColor: 'steelblue',
     borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 5,
+    borderColor: 'steelblue',
+    borderRadius: 7,
     marginTop: 5
   },
-  deckNameText: {
-    color: 'white',
-    fontSize: 17,
+  deckTitleText: {
+    color: 'steelblue',
+    fontSize: 22,
     textAlign: 'center',
     marginTop: 12
   },
   deckCardText: {
-    color: white,
-    fontSize: 14,
+    color: 'steelblue',
+    fontSize: 12,
     textAlign: 'center'
   },
   center: {
     flexDirection: 'row',
     flex: 1,
     alignItems: 'center',
-    marginLeft: 40,
-    marginRight: 40,
+    marginLeft: 10,
+    marginRight: 10,
   },
 })
 

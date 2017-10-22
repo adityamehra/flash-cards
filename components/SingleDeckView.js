@@ -1,20 +1,34 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { white } from '../utils/colors'
+import { white, red } from '../utils/colors'
+import { clearLocalNotification, setLocalNotification } from '../utils/helper'
 
 class SingleDeckView extends React.Component {
+
+  _onPress = () => {
+    if(this.props.number_of_cards > 0){
+      this.props.navigation.navigate('QuizView', {deck: this.props.navigation.state.params.deck.title})
+      clearLocalNotification()
+        .then(setLocalNotification)
+    }else{
+      alert('There are no cards in the deck.')
+    }
+  }
+
   render() {
     const deck_title = this.props.navigation.state.params.deck.title
     return (
       <View style={styles.container}>
-        <Text style={styles.deckNameText}>{deck_title}</Text>
-        <Text style={styles.deckCardText}>{this.props.number_of_cards  + ' cards'}</Text>
-        <TouchableOpacity style={styles.iosSubmitBtn} onPress={() => this.props.navigation.navigate('NewCard', {deck: deck_title })}>
-          <Text style={styles.submitBtnText}>Add Question</Text>
+        <View style={{borderWidth: 1, borderColor: 'steelblue', borderRadius: 7, marginLeft: 40, marginRight: 40, marginTop: 20}}>
+          <Text style={styles.deckTitleText}>{deck_title}</Text>
+          <Text style={styles.deckCardText}>{this.props.number_of_cards  + ' cards'}</Text>
+        </View>
+        <TouchableOpacity style={styles.iosAddBtn} onPress={() => this.props.navigation.navigate('NewCard', {deck: deck_title })}>
+          <Text style={styles.addBtnText}>Add Card</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.iosSubmitBtn}>
-          <Text style={styles.submitBtnText}>Start Quiz</Text>
+        <TouchableOpacity style={styles.iosAddBtn} onPress={this._onPress}>
+          <Text style={styles.addBtnText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
     )
@@ -32,31 +46,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  iosSubmitBtn: {
-    backgroundColor: 'skyblue',
+  iosAddBtn: {
     padding: 10,
     borderRadius: 7,
+    borderWidth: 1,
+    borderColor: 'steelblue',
     height: 45,
     marginLeft: 40,
     marginRight: 40,
     marginTop: 10
   },
-  submitBtnText: {
-    color: white,
+  addBtnText: {
+    color: 'steelblue',
     fontSize: 22,
     textAlign: 'center',
   },
-  deckNameText: {
-    color: white,
-    fontSize: 30,
+  deckTitleText: {
+    color: 'steelblue',
+    fontSize: 35,
     textAlign: 'center',
-    marginTop: 50
+    marginTop: 30
   },
   deckCardText: {
-    color: white,
-    fontSize: 22,
+    color: 'steelblue',
+    fontSize: 12,
     textAlign: 'center',
-    marginTop: 5
+    marginBottom: 30
   },
   center: {
     flex: 1,
@@ -65,9 +80,13 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps(decks, ownProps){
+
+  const name_of_deck = ownProps.navigation.state.params.deck.title.toLowerCase()
+
   return {
-    number_of_cards: decks[ownProps.navigation.state.params.deck.title.toLowerCase()].questions.length
+    number_of_cards: decks[name_of_deck].questions.length
   }
+
 }
 
 export default connect(mapStateToProps)(SingleDeckView)

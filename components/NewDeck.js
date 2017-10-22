@@ -29,14 +29,16 @@ class NewDeck extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.headingText}>What is the name of the new Deck?</Text>
-        <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1, margin:40}}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
-        />
-        <TouchableOpacity style={styles.iosSubmitBtn} onPress={this.addNewDeckTitle}>
-          <Text style={styles.submitBtnText}>Add new Deck</Text>
+        <View style={{borderWidth: 1, borderColor: 'steelblue', borderRadius: 7, marginLeft: 40, marginRight: 40, marginTop: 20}}>
+          <Text style={styles.headingText}>What is the name of the new Deck?</Text>
+          <TextInput
+            style={{height: 40, borderColor: 'steelblue', color: 'steelblue', borderWidth: 1, margin:40, borderRadius: 7}}
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+          />
+        </View>
+        <TouchableOpacity style={styles.iosAddBtn} onPress={this.addNewDeckTitle}>
+          <Text style={styles.iosAddBtnText}>Add new Deck</Text>
         </TouchableOpacity>
       </View>
     )
@@ -47,30 +49,33 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: white,
+    backgroundColor: 'powderblue',
   },
   row: {
     flexDirection: 'row',
     flex: 1,
     alignItems: 'center',
   },
-  iosSubmitBtn: {
-    backgroundColor: 'skyblue',
+  iosAddBtn: {
     padding: 10,
     borderRadius: 7,
+    borderWidth: 1,
+    borderColor: 'steelblue',
     height: 45,
     marginLeft: 40,
     marginRight: 40,
+    marginTop: 20
   },
-  submitBtnText: {
-    color: white,
+  iosAddBtnText: {
+    color: 'steelblue',
     fontSize: 22,
     textAlign: 'center',
   },
   headingText: {
-    color: 'black',
+    color: 'steelblue',
     fontSize: 22,
     textAlign: 'center',
+    marginTop: 20
   },
   center: {
     flex: 1,

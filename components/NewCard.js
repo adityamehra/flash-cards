@@ -34,20 +34,21 @@ class NewCard extends Component {
     console.log(this.state.question)
     console.log(this.state.answer)
     return (
-      <View>
-        <Text>Add new card</Text>
+      <View style={styles.container}>
+        <Text style={styles.headingText}>Question:</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1, margin:40}}
+          style={{height: 40, borderColor: 'steelblue', borderWidth: 1, borderRadius: 7, marginLeft:40, marginRight:40, marginTop: 10}}
           onChangeText={(text) => this.setState({question:text})}
           value={this.state.text}
         />
+        <Text style={styles.headingText}>Answer:</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1, margin:40}}
+          style={{height: 40, borderColor: 'steelblue', borderWidth: 1, borderRadius: 7,  marginLeft:40, marginRight:40, marginTop: 10}}
           onChangeText={(text) => this.setState({answer:text})}
           value={this.state.text}
         />
-        <TouchableOpacity style={styles.iosSubmitBtn} onPress={() => {this.addNewCard({deck: deck_title, card: {question: this.state.question, answer: this.state.answer}})}}>
-          <Text style={styles.submitBtnText}>Add new Card</Text>
+        <TouchableOpacity style={styles.iosAddBtn} onPress={() => {this.addNewCard({deck: deck_title, card: {question: this.state.question, answer: this.state.answer}})}}>
+          <Text style={styles.addBtnText}>Add new Card</Text>
         </TouchableOpacity>
       </View>
     )
@@ -58,20 +59,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: white
+    backgroundColor: 'powderblue'
   },
   row: {
     flexDirection: 'row',
     flex: 1,
     alignItems: 'center',
   },
-  iosSubmitBtn: {
-    backgroundColor: purple,
-    padding: 10,
+  iosAddBtn: {
+    borderColor: 'steelblue',
     borderRadius: 7,
+    borderWidth: 1,
+    padding: 10,
     height: 45,
     marginLeft: 40,
     marginRight: 40,
+    marginTop: 50
   },
   AndroidSubmitBtn: {
     backgroundColor: purple,
@@ -84,10 +87,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  submitBtnText: {
-    color: white,
+  addBtnText: {
+    color: 'steelblue',
     fontSize: 22,
     textAlign: 'center',
+  },
+  headingText: {
+    color: 'steelblue',
+    fontSize: 22,
+    textAlign: 'center',
+    marginTop: 20
   },
   center: {
     flex: 1,
