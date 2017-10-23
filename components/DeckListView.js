@@ -22,7 +22,7 @@ class DeckListView extends React.Component {
     console.log("Component Will Mount");
   }
 
-  onPress = (item) => {
+  _onPress = (item) => {
     this.props.navigation.navigate('SingleDeckView', {deck: item})
   }
 
@@ -36,7 +36,7 @@ class DeckListView extends React.Component {
             renderItem={({item}) => {
               return (
                 <View style={styles.center}>
-                  <TouchableOpacity style={styles.eachDeckRow} onPress={() => this.onPress(item)}>
+                  <TouchableOpacity style={styles.eachDeckRow} onPress={() => this._onPress(item)}>
                     <Text style={styles.deckTitleText}>{item.title}</Text>
                     <Text style={styles.deckCardText}>{`${item.cards} cards`}</Text>
                   </TouchableOpacity>
@@ -107,4 +107,3 @@ function mapStateToProps(decks){
 }
 
 export default connect(mapStateToProps)(DeckListView)
-

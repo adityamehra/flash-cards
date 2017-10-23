@@ -7,11 +7,11 @@ import { clearLocalNotification, setLocalNotification } from '../utils/helper'
 class SingleDeckView extends React.Component {
 
   _onPress = () => {
-    if(this.props.number_of_cards > 0){
+    if(this.props.number_of_cards > 0) {
       this.props.navigation.navigate('QuizView', {deck: this.props.navigation.state.params.deck.title})
       clearLocalNotification()
         .then(setLocalNotification)
-    }else{
+    } else {
       alert('There are no cards in the deck.')
     }
   }

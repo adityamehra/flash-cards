@@ -14,11 +14,14 @@ class NewCard extends Component {
   }
 
   addNewCard = ({deck, card}) => {
-    if(this.state.question.length > 4 && this.state.answer.length > 4){
+    if(this.state.question.length >= 4 && this.state.answer.length >= 2){
+      this.setState({question:'', answer:''})
       addCardToDeck({deck, card})
       console.log(this.props.decks)
       this.props.dispatch(addCard({deck, card}))
-      console.log(this.props.decks)
+      // console.log(this.props.decks)
+      // this.setState({question:'' ,answer: ''})
+      alert('Card is added')
     }else{
       alert('Question/Answer is missing')
     }
@@ -30,22 +33,22 @@ class NewCard extends Component {
 
   render() {
     const deck_title = this.state.deck
-    console.log(deck_title)
-    console.log(this.state.question)
-    console.log(this.state.answer)
+    // console.log(deck_title)
+    // console.log(this.state.question)
+    // console.log(this.state.answer)
     return (
       <View style={styles.container}>
         <Text style={styles.headingText}>Question:</Text>
         <TextInput
           style={{height: 40, borderColor: 'steelblue', borderWidth: 1, borderRadius: 7, marginLeft:40, marginRight:40, marginTop: 10}}
           onChangeText={(text) => this.setState({question:text})}
-          value={this.state.text}
+          value={this.state.question}
         />
         <Text style={styles.headingText}>Answer:</Text>
         <TextInput
           style={{height: 40, borderColor: 'steelblue', borderWidth: 1, borderRadius: 7,  marginLeft:40, marginRight:40, marginTop: 10}}
           onChangeText={(text) => this.setState({answer:text})}
-          value={this.state.text}
+          value={this.state.answer}
         />
         <TouchableOpacity style={styles.iosAddBtn} onPress={() => {this.addNewCard({deck: deck_title, card: {question: this.state.question, answer: this.state.answer}})}}>
           <Text style={styles.addBtnText}>Add new Card</Text>

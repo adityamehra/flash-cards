@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 
 # Flashcards
 
-## Project Overvie
+## Project Overview
 
 Flashcards allow users to study collections of flashcards. The app allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks.
 

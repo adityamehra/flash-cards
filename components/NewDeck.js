@@ -19,6 +19,7 @@ class NewDeck extends React.Component {
           alert('Deck already exists')
         }else{
           this.props.dispatch(addDeck(this.state.text))
+          this.props.navigation.navigate('SingleDeckView', {deck: {title: this.state.text}})
         }
       })
     } else {

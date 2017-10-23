@@ -96,7 +96,7 @@ class SingleDeckView extends React.Component {
               <View style={{marginLeft: 40, marginRight: 40, marginTop: 20, borderRadius: 7}}>
                 <Text style={styles.deckCounterText}>{ (this.state.current_card + 1) + '/' + this.state.total_cards}</Text>
                 {
-                 <Text style={styles.deckCardText}>{ this.state.correct_cards }</Text>
+                 // <Text style={styles.deckCardText}>{ this.state.correct_cards }</Text>
                 }
               </View>
               <View style={{borderColor: 'steelblue', borderWidth: 1, borderRadius: 7, height: 100, marginLeft: 40, marginRight: 40, marginTop: 20}}>
