@@ -10,29 +10,29 @@ Flashcards allow users to study collections of flashcards. The app allow users t
 
 ### 1. Deck List View
 
-![Deck List View](/screenshots/DeckListView.png)
+<img src="./screenshots/DeckListView.png" width="250" height="450">
 
 ### 2. New Card View 
 
-![New Card View](/screenshots/NewCardView.png)
+<img src="./screenshots/NewCardView.png" width="250" height="450">
 
 ### 3. New Deck View
 
-![New Deck View 1](/screenshots/NewDeckView-1.png)
+<img src="./screenshots/NewDeckView-1.png" width="250" height="450">
 
-![New Deck View 2](/screenshots/NewDeckView-2.png)
+<img src="./screenshots/NewDeckView-2.png" width="250" height="450">
 
 ### 4. Single Card View
 
-![Single Card View](/screenshots/SingleCardView.png)
+<img src="./screenshots/SingleCardView.png" width="250" height="450">
 
 ### 5. Quiz View
 
-![Quiz View 1](/screenshots/QuizView-1.png)
+<img src="./screenshots/QuizView-1.png" width="250" height="450">
 
-![Quiz View 2](/screenshots/QuizView-2.png)
+<img src="./screenshots/QuizView-2.png" width="250" height="450">
 
-![Quiz View 3](/screenshots/QuizView-3.png)
+<img src="./screenshots/QuizView-3.png" width="250" height="450">
 
 
 
