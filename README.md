@@ -5,8 +5,11 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 ## How to run the project
 
 `git clone https://github.com/adityamehra/flash-cards.git`
+
 `cd flash-cards`
+
 `yarn install`
+
 `yarn start`
 
 __Note__: You can install [expo](https://expo.io/) on your iPhone and run the app by scanning the QR code from the expo app __OR__ use the iPhone simulator.
