@@ -9,7 +9,7 @@ import { receiveDecks, addDeck } from '../actions'
 class DeckListView extends React.Component {
 
   componentDidMount() {
-    console.log("Component Did Mount");
+    console.log("Component Did Mount")
 
     getDecks()
       .then(decks => {
@@ -19,7 +19,7 @@ class DeckListView extends React.Component {
   }
 
   componentWillMount() {
-    console.log("Component Will Mount");
+    console.log("Component Will Mount")
   }
 
   _onPress = (item) => {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(decks){
 
-  console.log(decks)
+  // console.log(decks)
 
   return {
     decks: Object.keys(decks).map(deck => {return {title: decks[deck].title, cards:decks[deck].questions.length}})
